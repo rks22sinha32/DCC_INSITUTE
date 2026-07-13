@@ -18,7 +18,8 @@ export default function Home() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/courses/');
+        // 👇 YAHAN CHANGE KIYA HAI: Localhost ki jagah aapka AWS Server IP daal diya!
+        const response = await fetch('http://15.164.163.3:8000/api/courses/');
         if (response.ok) {
           const data = await response.json();
 
