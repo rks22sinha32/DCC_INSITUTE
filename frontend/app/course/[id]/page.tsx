@@ -30,7 +30,7 @@ export default function CourseDetailPage() {
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/courses/${params.id}/`);
+        const response = await fetch(`http://15.164.163.3:8000/api/courses//${params.id}/`);
         if (response.ok) {
           const data = await response.json();
           setCourse(data);

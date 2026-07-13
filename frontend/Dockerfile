@@ -1,5 +1,5 @@
 # 1. BASE: Ek chhota aur fast Linux OS jisme Node.js pehle se ho
-FROM node:18-alpine
+FROM node:20-alpinels
 
 # 2. WORKDIR: Container ke andar ek folder banate hain jahan humara code rahega
 WORKDIR /app

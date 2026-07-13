@@ -20,7 +20,7 @@ export default function AllCoursesPage() {
   useEffect(() => {
     const fetchAllCourses = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/courses/');
+        const response = await fetch('http://15.164.163.3:8000/api/courses/');
         if (response.ok) {
           const data = await response.json();
           setCourses(data); // Pura data set kar diya, no slice!
