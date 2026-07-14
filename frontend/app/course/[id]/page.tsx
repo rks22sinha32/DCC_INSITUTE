@@ -30,7 +30,8 @@ export default function CourseDetailPage() {
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
-        const response = await fetch(`http://15.164.163.3:8000/api/courses//${params.id}/`);
+        // 👇 YAHAN FIX KIYA: Double slash (//) ko hata kar single slash (/) kar diya 👇
+        const response = await fetch(`http://3.39.230.105:8000/api/courses/${params.id}/`);
         if (response.ok) {
           const data = await response.json();
           setCourse(data);
