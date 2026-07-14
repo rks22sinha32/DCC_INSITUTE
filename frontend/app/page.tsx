@@ -19,7 +19,7 @@ export default function Home() {
     const fetchCourses = async () => {
       try {
         // 👇 YAHAN CHANGE KIYA HAI: Localhost ki jagah aapka AWS Server IP daal diya!
-        const response = await fetch('http://15.164.163.3:8000/api/courses/');
+        const response = await fetch('http://54.180.117.210:8000/api/courses/');
         if (response.ok) {
           const data = await response.json();
 
