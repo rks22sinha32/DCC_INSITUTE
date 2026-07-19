@@ -16,11 +16,17 @@ export default function AllCoursesPage() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Saare courses fetch karna (bina kisi limit ke)
+ // Saare courses fetch karna (bina kisi limit ke)
   useEffect(() => {
     const fetchAllCourses = async () => {
       try {
-        const response = await fetch('http://15.164.163.3:8000/api/courses/');
+        // 👇 YAHAN CHANGE KIYA HAI: http kiya aur port 8000 laga diya
+        const response = await fetch('http://127.0.0.1:8000/api/courses/', {
+          headers: {
+            "ngrok-skip-browser-warning": "true"
+          }
+        });
+        
         if (response.ok) {
           const data = await response.json();
           setCourses(data); // Pura data set kar diya, no slice!

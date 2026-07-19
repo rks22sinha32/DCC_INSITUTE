@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-+e*w(d&!r9u30&e6_(8a7^(i5+%^r1$($cy7sqb+0&2rg02tjx
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # 👇 CHANGE 1: Hackers se bachne ke liye live server par isko False karte hain 👇
-DEBUG = False
+DEBUG = True
 
 # '*' ka matlab hai ki ab yeh kisi bhi IP (jaise AWS ke server) se requests accept karega.
 ALLOWED_HOSTS = ['*']
@@ -37,8 +37,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware', 
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,7 +101,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # 👇 CHANGE 2: AWS par Admin Panel ka design theek rakhne ke liye yeh line add ki hai 👇
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -119,3 +119,16 @@ REST_FRAMEWORK = {
 
 # Yeh Next.js ko Django se baat karne ki permission dega
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'ngrok-skip-browser-warning', # <--- Ye raha humara VIP pass
+]
+

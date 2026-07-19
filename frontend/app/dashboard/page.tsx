@@ -30,7 +30,7 @@ export default function Dashboard() {
   // Backend se courses fetch karna (Abhi ke liye saare courses dikha rahe hain, baad mein 'My Courses' filter lagayenge)
   const fetchMyCourses = async () => {
     try {
-      const response = await fetch('http://3.39.230.105:8000/api/courses/');
+      const response = await fetch('https://127.0.0.1/api/courses/');
       if (response.ok) {
         const data = await response.json();
         setCourses(data);

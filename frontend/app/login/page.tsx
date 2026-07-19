@@ -18,7 +18,7 @@ export default function LoginPage() {
 
    try {
       // Django API ko data bhej rahe hain
-      const response = await fetch('http://3.39.230.105:8000/api/login/', {
+      const response = await fetch('http://127.0.0.1:8000/api/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
