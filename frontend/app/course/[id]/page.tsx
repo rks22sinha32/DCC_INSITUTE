@@ -37,7 +37,6 @@ export default function CourseDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 👇 YAHAN CHANGE KIYA: GET request mein header add kiya
         const res = await fetch(`http://127.0.0.1:8000/api/courses/${params.id}/`, {
           headers: {
             "ngrok-skip-browser-warning": "true"
@@ -55,7 +54,6 @@ export default function CourseDetailPage() {
 
   const handleReviewSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 👇 YAHAN CHANGE KIYA: POST request mein header add kiya
     const res = await fetch("https://127.0.0.1:8000/api/reviews/", {
       method: "POST",
       headers: {
@@ -96,11 +94,23 @@ export default function CourseDetailPage() {
             <div key={ch.id} onClick={() => setExpandedChapter(expandedChapter === ch.id ? null : ch.id)}
               className="bg-slate-800/30 p-6 rounded-xl border border-slate-700 cursor-pointer hover:border-blue-500/50">
               <div className="flex justify-between font-bold">{ch.title} <span>{expandedChapter === ch.id ? '−' : '+'}</span></div>
-              {expandedChapter === ch.id && <p className="mt-4 text-slate-300 text-sm">{ch.content}</p>}
+              
+              {/* 👇 YAHAN CHANGE KIYA HAI: Split aur Map wala code add ho gaya */}
+              {expandedChapter === ch.id && (
+                <div className="mt-4 text-slate-300 text-sm flex flex-col gap-2">
+                  {ch.content.split('-').map((item, index) => {
+                    if (item.trim() !== "") {
+                      return <div key={index}>👉 {item.trim()}</div>;
+                    }
+                    return null;
+                  })}
+                </div>
+              )}
+              {/* 👆 CHANGE KHATAM */}
+
             </div>
           ))}
         </div>
-
 
       </div>
     </div>

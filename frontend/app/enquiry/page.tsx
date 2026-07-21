@@ -26,7 +26,7 @@ function EnquiryFormContent() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch("https://retake-outsider-landmark.ngrok-free.dev/api/courses/");
+        const res = await fetch("http://127.0.0.1:8000/api/courses/");
         if (res.ok) {
           const data = await res.json();
           setAvailableCourses(data);
